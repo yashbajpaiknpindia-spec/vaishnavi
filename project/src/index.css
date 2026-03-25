@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Playfair+Display:italic,wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", serif;
+  --color-paper: #fcfcfc;
+  --color-ink: #0a0a0a;
+  --color-accent: #c5a059; /* Muted gold */
+}
+
+@layer base {
+  body {
+    @apply bg-paper text-ink overflow-x-hidden antialiased selection:bg-ink selection:text-paper;
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4 {
+    @apply tracking-tighter font-black uppercase leading-[0.9];
+  }
+}
+
+@layer components {
+  .grid-container {
+    @apply max-w-[1440px] mx-auto px-6 md:px-12 lg:px-24;
+  }
+
+  .section-padding {
+    @apply py-24 md:py-48;
+  }
+
+  .divider {
+    @apply h-px w-full bg-ink/10;
+  }
+
+  .btn-luxury {
+    @apply inline-block px-8 py-4 border border-ink text-sm font-bold uppercase tracking-widest hover:bg-ink hover:text-paper transition-all duration-300;
+  }
+
+  .section-number {
+    @apply font-mono text-xs mb-8 block opacity-40;
+  }
+}
+
+/* Custom cursor for luxury feel */
+.custom-cursor {
+  @apply fixed top-0 left-0 w-4 h-4 bg-ink rounded-full pointer-events-none z-[9999] mix-blend-difference transition-transform duration-200;
+}
+
+.custom-cursor.hover {
+  @apply scale-[4];
+}
